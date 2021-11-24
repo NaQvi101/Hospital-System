@@ -1,0 +1,61 @@
+{%extends "layout.html"%}
+{%from "macro.html" import docNav %}
+
+{%block nav %}
+  {{docNav(name)}}
+{%endblock nav%}
+
+
+
+
+<!-- deal.patient_id,patients.name,patients.gender,deal.symptoms -->
+{%block content%}
+<br>
+    {%if len%}
+        <h1>Patient Data</h1>
+        <div class="card border-dark mb-3" style="min-width: 40rem;">
+            <div class="card-header">Patient ID  : {{curr[1]}}</div>
+            <div class="card-body text-dark">
+            <h5 class="card-title">Name: {{curr[2].upper()}}</h5>
+            
+            <h5 class="card-text">Gender     : {{curr[3].upper()}}</h5>
+            <h5 class="card-text">Symptoms     : {{curr[4]}}</h5>
+            <form class="row g-3" action="/reportSubmit" method="post">
+                    <div class="col-md-6">
+                
+                    <div class="col-6 row-2">
+                    <label for="address" class="form-label">Diagnosis</label>
+                    <input type="text" class="form-control" name="diagnosis"  required>
+                    </div>
+
+                    <div class="col-6 row-2">
+                    <label for="address" class="form-label">Medicines</label>
+                    <input type="text" class="form-control" name="medicines"  required>
+                    </div>
+
+                    <div class="col-6 row-2">
+                    <label for="address" class="form-label">Checkup Fee</label>
+                    <input type="text" class="form-control" name="fee"  required>
+                    </div>
+                
+                    <br>
+                    <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Next Patient</button>
+                    </div>
+                    <br>
+            </form>
+            
+</div>
+        </div>  
+    {%else%}
+        <h1>{{msg}}</h1>
+    {%endif%}
+{%endblock content%}
+
+
+<!-- 
+    <h5 class="card-title">Doctor Name: {{report[1]}}</h5>
+    <p class="card-text">Symptoms     : {{report[2]}}</p>
+    <p class="card-text">Diagnosis : {{report[3]}}</p>
+    <p class="card-text">Medicines  : {{report[4]}}</p>
+    <p class="card-text">Checkup Fee  : {{report[5]}}</p> -->

@@ -1,0 +1,93 @@
+{%extends "layout.html"%}
+{%from "macro.html" import nav %}
+{%block nav %}
+  {{nav("Admin-HMS")}}
+{%endblock nav%}
+
+
+
+
+
+
+{%block content%}
+<h1>Doctor Sign Up</h1>
+{%if success==True%}
+  <div class="alert alert-success" role="alert">
+    {{successMsg}}
+  </div>
+{%endif%}
+{%if error == True%}
+    <div class="alert alert-warning" role="alert">
+    {{errorMsg}}
+    </div>
+{%endif%}
+<form action="/newDoctorSubmit" method="post">
+
+  <form class="row g-3">
+    <div class="col-md-6">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" class="form-control" name="name" required>
+    </div>
+    <div class="col-md-6">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" name="email" required>
+    </div>
+
+    <div class="col-md-6">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" name="password" minlength="8" required>
+    </div>
+
+    <div class="col-md-6">
+      <label for="dateofbirth" class="form-label">Date of birth</label>
+      <input type="date" class="form-control" name="dob" required>
+    </div>
+
+    <div class="col-6 row-2">
+      <label for="address" class="form-label">Home Address</label>
+      <input type="text" class="form-control" name="address" placeholder="1234 Main St" required>
+    </div>
+
+    <div class="col-6 row-2">
+        <label for="address" class="form-label">Doctor's Qualification</label>
+        <input type="text" class="form-control" name="qualification" required>
+    </div>
+    
+    <div class="col-6 row-2">
+        <label for="address" class="form-label">Specialization</label>
+        <input type="text" class="form-control" name="specialization" required>
+    </div>
+
+    <label for="gender" class="form-label">Gender</label><br>
+
+    <input class="form-check-input" type="radio" name="gender" value="male" checked>
+    <label class="form-check-label" for="flexRadioDefault1">
+        Male
+    </label>
+      <input class="form-check-input" type="radio" name="gender" value="female">
+      <label class="form-check-label" for="flexRadioDefault2">
+        Female        
+      </label>
+    
+    
+      <input class="form-check-input" type="radio" name="gender" value="other">
+      <label class="form-check-label" for="flexRadioDefault2">
+        Other
+      </label>
+      
+      <br>
+      <div class="col-md-6">
+        <label for="phone" class="form-label">Phone</label>
+        <input type="phone" class="form-control" name="phone" required>
+      </div>
+      <br>
+      <div class="col-md-6">
+        <label for="dateofbirth" class="form-label">Date of Joining</label>
+        <input type="date" class="form-control" name="doj" required>
+      </div>
+      <br>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Create Account</button>
+    </div>
+  </form>
+{%endblock content%}

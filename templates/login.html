@@ -1,0 +1,60 @@
+{%extends "layout.html"%}
+{%block nav%}
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" style="text-align: center;">OUR HMS</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+{%endblock nav%}
+{%block content%}
+{% if error %}
+<div class="alert alert-warning d-flex align-items-center" role="alert">
+  <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+  <div>
+    {{errorMsg}}
+  </div>
+</div>
+{% endif %}
+<form action="/login" method="post">
+    <div class="col-md-6">
+      <label class="form-label">Email address</label>
+      <input type="email" class="form-control" name="email" aria-describedby="emailHelp"  required>
+      <div id="emailHelp" class="form-text"></div>
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Password</label>
+      <input type="password" class="form-control" name="password" required minlength="8">
+    </div>
+    
+     <br>
+     <label class="form-label">Login as</label>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="logintype" value="admin" checked>
+      <label class="form-check-label" for="flexRadioDefault1">
+        Admin
+      </label>
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="logintype" value="patient">
+      <label class="form-check-label" for="flexRadioDefault2">
+        Patient        <a href="/patientSignUp" class="link-primary">New Patient?</a>
+      </label>
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="logintype" value="doctor">
+      <label class="form-check-label" for="flexRadioDefault2">
+        Doctor
+      </label>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary">Log in</button>
+
+    </div>
+
+  </form>
+  {%endblock content%}

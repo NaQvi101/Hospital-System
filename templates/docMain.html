@@ -1,0 +1,9 @@
+{%extends "layout.html"%}
+{%from "macro.html" import docNav %}
+
+{%block nav %}
+  {{docNav(name)}}
+{%endblock nav%}
+{%block img%}
+    <img class="img-fluid" src="{{url_for('static',filename='d2.jpg')}}" width="1366px" height="601px" alt="Image Not Found" height="200px">
+{%endblock img%}

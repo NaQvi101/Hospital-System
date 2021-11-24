@@ -1,0 +1,33 @@
+{%extends "layout.html"%}
+{%from "macro.html" import nav %}
+{%block nav %}
+  {{nav("Admin-HMS")}}
+{%endblock nav%}
+
+
+{%block content%}
+<br>
+{%if len%}
+	{%for nurse in nurses%}
+		<div class="card border-dark mb-3" style="min-width: 33rem;">
+			<div class="card-header">Nurse ID  : {{nurse[0]}}</div>
+			<div class="card-body text-dark">
+
+					<h5 class="card-title">Nurse Name: {{nurse[1]}}</h5>
+					<p class="card-text">Email Address : {{nurse[2]}}</p>
+					<p class="card-text">Gender        : {{nurse[3]}}</p>
+					<p class="card-text">Date of Birth : {{nurse[4]}}</p>
+					<!-- <p class="card-text">Home Address  : {{nurse[5]}}</p> -->
+					<p class="card-text">Phone Number  : {{nurse[5]}}</p>
+          <p class="card-text">Qualification  : {{nurse[6]}}</p>
+          <p class="card-text">Joining Date  : {{nurse[7]}}</p>
+          <p class="card-text">Availability  : {{"Available" if nurse[8]==1 else "Not Available"}}</p>
+
+			</div>
+		</div>  
+	{%endfor%}
+{%else%}
+		<h1>Hospital has no Nurses</h1>
+{%endif%}
+
+{%endblock content%}

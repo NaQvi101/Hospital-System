@@ -1,0 +1,11 @@
+{%extends "layout.html"%}
+{%from "macro.html" import patientnav %}
+
+{%block nav %}
+  {{patientnav(name)}}
+{%endblock nav%}
+
+{%block img %}
+<img class="img-fluid" src="{{url_for('static',filename='patient.webp')}}" width="1366px" height="601px" alt="Image Not Found" height="200px">
+  
+{%endblock img%}

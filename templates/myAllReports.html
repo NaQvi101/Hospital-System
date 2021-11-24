@@ -1,0 +1,27 @@
+{%extends "layout.html"%}
+{%from "macro.html" import patientnav %}
+
+{%block nav %}
+  {{patientnav(name)}}
+{%endblock nav%}
+
+
+{%block content%}
+<br>
+    {%if len%}
+        {%for report in reports%}
+            <div class="card border-dark mb-3" style="min-width: 40rem;">
+                <div class="card-header">Deal ID  : {{report[0]}}</div>
+                <div class="card-body text-dark">
+                        <h5 class="card-title">Doctor Name: {{report[1]}}</h5>
+                        <p class="card-text">Symptoms     : {{report[2]}}</p>
+                        <p class="card-text">Diagnosis : {{report[3]}}</p>
+                        <p class="card-text">Medicines  : {{report[4]}}</p>
+                        <p class="card-text">Checkup Fee  : {{report[5]}}</p>
+                </div>
+            </div>  
+        {%endfor%}
+    {%else%}
+        <h1>No Report</h1>
+    {%endif%}
+{%endblock content%}

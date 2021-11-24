@@ -1,0 +1,17 @@
+{%extends "layout.html"%}
+{%from "macro.html" import nav %}
+
+{%block nav %}
+  {{nav("Admin-HMS")}}
+{%endblock nav%}
+
+{%block img %}
+
+<img class="img-fluid" src="{{url_for('static',filename='main.jpg')}}" width="1366px" height="601px" alt="Image Not Found" height="200px">
+
+
+{%endblock img%}
+
+
+{%block content %}
+{%endblock content%}

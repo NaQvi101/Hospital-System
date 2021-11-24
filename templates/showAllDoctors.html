@@ -1,0 +1,31 @@
+{%extends "layout.html"%}
+{%from "macro.html" import nav %}
+{%block nav %}
+  {{nav("Admin-HMS")}}
+{%endblock nav%}
+
+{%block content%}
+<br>
+{%if len%}
+	{%for doctor in doctors%}
+		<div class="card border-dark mb-3" style="min-width: 40rem;">
+			<div class="card-header">Doctor ID  : {{doctor[0]}}</div>
+			<div class="card-body text-dark">
+					<h5 class="card-title">Name: {{doctor[1]}}</h5>
+					<p class="card-text">Email Address : {{doctor[2]}}</p>
+					<p class="card-text">Address     : {{doctor[3]}}</p>
+					<p class="card-text">Gender : {{doctor[4]}}</p>
+					<p class="card-text">Date of Birth  : {{doctor[5]}}</p>
+                    <p class="card-text">Phone Number  : {{doctor[6]}}</p>
+                    <p class="card-text">Joining Date  : {{doctor[7]}}</p>
+                    <p class="card-text">Qualification : {{doctor[8]}}</p>
+                    <p class="card-text">Specialization : {{doctor[9]}}</p>
+                    <p class="card-text">Availability Status : {{"Available" if doctor[10]==1 else "Not Available"}}</p>
+			</div>
+		</div>  
+	{%endfor%}
+{%else%}
+		<h1>Hospital has no Doctors</h1>
+{%endif%}
+
+{%endblock content%}

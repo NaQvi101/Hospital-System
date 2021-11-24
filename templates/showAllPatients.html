@@ -1,0 +1,30 @@
+{%extends "layout.html"%}
+{%from "macro.html" import nav %}
+{%block nav %}
+  {{nav("Admin-HMS")}}
+{%endblock nav%}
+
+
+
+{%block content%}
+<br>
+{%if len%}
+	{%for patient in patients%}
+		<div class="card border-dark mb-3" style="min-width: 35rem;">
+			<div class="card-header">Patient ID  : {{patient[0]}}</div>
+			<div class="card-body text-dark">
+					<h5 class="card-title">Patient Name: {{patient[1]}}</h5>
+					<p class="card-text">Email Address : {{patient[2]}}</p>
+					<p class="card-text">Gender        : {{patient[3]}}</p>
+					<p class="card-text">Date of Birth : {{patient[4]}}</p>
+					<p class="card-text">Home Address  : {{patient[5]}}</p>
+					<p class="card-text">Phone Number  : {{patient[6]}}</p>
+
+			</div>
+		</div>  
+	{%endfor%}
+{%else%}
+		<h1>Hospital has no more patients:)</h1>
+{%endif%}
+
+{%endblock content%}

@@ -1,0 +1,43 @@
+{%extends "layout.html"%}
+{%from "macro.html" import patientnav %}
+
+{%block nav %}
+  {{patientnav(name)}}
+{%endblock nav%}
+
+
+
+{%block content%}
+<br>
+    {%if len%}
+        <h1>Which type of doctor you want to met?</h1>
+        <div class="card border-dark mb-3" style="min-width: 40rem;">
+            <div class="card-header">Categories</div>
+            <div class="card-body text-dark">
+        <form class="row g-3" action="/showDoctors" method="post">
+          {%for s in specialization%}    
+            <h5 class="card-title">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="specialization" value="{{s[0]}}">
+              <label class="form-check-label">
+              {{s[0]}}
+              </label>
+            </div>
+          </h5>
+            
+           
+                
+                    <br>
+          {%endfor%}
+                    <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Next</button>
+                    </div>
+                    <br>
+            </form>
+            
+</div>
+        </div>  
+    {%else%}
+        <h1>{{msg}}</h1>
+    {%endif%}
+{%endblock content%}
